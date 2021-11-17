@@ -1,0 +1,23 @@
+models:
+  SitioTuristico:
+    slug: string unique
+    region_id: id
+    nombre: string
+    descripcion: text
+    como_llegar: text
+    lugares_relacionados: text
+    coordenadas: json
+    num_visitas: integer
+    activo: boolean
+    relationships:
+      hasMany: SitioTuristicoVisita
+  SitioTuristicoVisita:
+    sitioturistico_id: id
+    ip: ipAddress
+    fecha: dateTime
+  Region:
+    slug: string unique
+    nombre: string
+    descripcion: text
+    relationships:
+      hasMany: SitioTuristico
