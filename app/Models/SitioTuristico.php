@@ -35,8 +35,22 @@ class SitioTuristico extends Model
         return $this->hasMany(\App\Models\SitioTuristicoVisita::class);
     }
 
+    public function sitioTuristicoGaleria()
+    {
+        return $this->hasMany(\App\Models\sitioTuristicoGaleria::class)->select(['id', 'nombre', 'ubicacion', 'tamanio_bytes', 'extension', 'created_at']);
+    }
+
     public function region()
     {
         return $this->belongsTo(\App\Models\Region::class);
+    }
+
+    public function getSingle($id){
+        return SitioTuristico::withCount('sitioTuristicoVisitas')->find($id);
+
+    }
+    public function getAll(){
+        return SitioTuristico::withCount('sitioTuristicoVisitas')->get();
+
     }
 }

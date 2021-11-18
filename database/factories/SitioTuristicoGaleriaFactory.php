@@ -4,17 +4,17 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\SitioTuristicoVisita;
+use App\Models\SitioTuristicoGaleria;
 use App\Models\Sitioturistico;
 
-class SitioTuristicoVisitaFactory extends Factory
+class SitioTuristicoGaleriaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SitioTuristicoVisita::class;
+    protected $model = SitioTuristicoGaleria::class;
 
     /**
      * Define the model's default state.
@@ -25,8 +25,10 @@ class SitioTuristicoVisitaFactory extends Factory
     {
         return [
             'sitio_turistico_id' => Sitioturistico::factory(),
-            'ip' => $this->faker->ipv4,
-            'fecha' => $this->faker->dateTime(),
+            'nombre' => $this->faker->word,
+            'ubicacion' => $this->faker->word,
+            'tamanio_bytes' => $this->faker->numberBetween($min = 1000, $max = 9000),
+            'extension' => $this->faker->word,
         ];
     }
 }

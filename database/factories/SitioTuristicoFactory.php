@@ -31,8 +31,6 @@ class SitioTuristicoFactory extends Factory
             'como_llegar' => $this->faker->text,
             'lugares_relacionados' => $this->faker->text,
             'coordenadas' => '{}',
-            'galeria' => '{}',
-            'num_visitas' => $this->faker->numberBetween(-10000, 10000),
             'activo' => $this->faker->boolean,
         ];
     }

@@ -25,8 +25,6 @@ class CreateTSitiosTuristicosTable extends Migration
             $table->text('como_llegar');
             $table->text('lugares_relacionados');
             $table->json('coordenadas');
-            $table->json('galeria');
-            $table->integer('num_visitas');
             $table->boolean('activo')->default(true);
             //$table->timestamp('created_at')->useCurrent();
             //$table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

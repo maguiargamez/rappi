@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SitioTuristicoVisita extends Model
+class SitioTuristicoGaleria extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class SitioTuristicoVisita extends Model
      * @var array
      */
     protected $guarded = [];
-    protected $table = 't_sitios_turisticos_visitas';
+    protected $table = 't_sitios_turisticos_galeria';
 
     /**
      * The attributes that should be cast to native types.
@@ -25,7 +25,6 @@ class SitioTuristicoVisita extends Model
     protected $casts = [
         'id' => 'integer',
         'sitio_turistico_id' => 'integer',
-        'fecha' => 'datetime',
     ];
 
 

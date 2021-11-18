@@ -17,7 +17,7 @@ class CreateTSitiosTuristicosVisitasTable extends Migration
 
         Schema::create('t_sitios_turisticos_visitas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sitioturistico_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate()->on('t_sitios_turisticos');
+            $table->foreignId('sitio_turistico_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate()->on('t_sitios_turisticos');
             $table->ipAddress('ip');
             $table->dateTime('fecha');
             //$table->timestamp('created_at')->useCurrent();
