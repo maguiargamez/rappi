@@ -24,7 +24,7 @@ class SitioTuristicoVisitaFactory extends Factory
     public function definition()
     {
         return [
-            'sitio_turistico_id' => Sitioturistico::factory(),
+            //'sitio_turistico_id' => Sitioturistico::factory(),
             'ip' => $this->faker->ipv4,
             'fecha' => $this->faker->dateTime(),
         ];
