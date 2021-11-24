@@ -6,6 +6,8 @@ use App\Models\SitioTuristico;
 use App\Models\SitioTuristicoVisita;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Testing\TestResponse;
+use PHPUnit\Util\Test;
 use Tests\TestCase;
 
 class CreateSitiosTuristicosVisitasTest extends TestCase
@@ -17,7 +19,7 @@ class CreateSitiosTuristicosVisitasTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $sitio= SitioTuristico::factory()->create();
-        $response= $this->postJson(route('api.v1.sitios-turisticos-visitas.create'),
+        $response= $this->postJson(route('api.v1.sitios-turisticos-visitas.store'),
         [
             'data' => [
                 'type'=> 'sitios-turisticos-visitas',
@@ -51,5 +53,45 @@ class CreateSitiosTuristicosVisitasTest extends TestCase
                 ]
             ]
         ]);
+    }
+
+    /** @test */
+    public function ip_id_is_required()
+    {
+        //$this->withoutExceptionHandling();
+        $sitio= SitioTuristico::factory()->create();
+        $response= $this->postJson(route('api.v1.sitios-turisticos-visitas.store'),
+            [
+                'data' => [
+                    'type'=> 'sitios-turisticos-visitas',
+                    'attributes' => [
+                        'sitio_turistico_id' => $sitio->id,
+                        //'ip' => '192.168.1.1',
+                        'fecha' => '2021-11-19 03:11:18',
+                    ]
+                ]
+            ])->dump();
+
+        $response->assertJsonApiValidationErrors('ip');
+    }
+
+    /** @test */
+    public function fecha_id_is_required()
+    {
+        //$this->withoutExceptionHandling();
+        $sitio= SitioTuristico::factory()->create();
+        $response= $this->postJson(route('api.v1.sitios-turisticos-visitas.store'),
+            [
+                'data' => [
+                    'type'=> 'sitios-turisticos-visitas',
+                    'attributes' => [
+                        'sitio_turistico_id' => $sitio->id,
+                        'ip' => '192.168.1.1',
+                        //'fecha' => '2021-11-19- 03:11:18',
+                    ]
+                ]
+            ])->dump();
+
+        $response->assertJsonApiValidationErrors('fecha');
     }
 }
