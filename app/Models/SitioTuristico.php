@@ -25,6 +25,7 @@ class SitioTuristico extends Model
     protected $casts = [
         'id' => 'integer',
         'region_id' => 'integer',
+        'municipio_id' => 'integer',
         'coordenadas' => 'array',
         'activo' => 'boolean',
     ];
@@ -43,6 +44,11 @@ class SitioTuristico extends Model
     public function region()
     {
         return $this->belongsTo(\App\Models\Region::class);
+    }
+
+    public function municipio()
+    {
+        return $this->belongsTo(\App\Models\Municipio::class);
     }
 
     public function getSingle($id){

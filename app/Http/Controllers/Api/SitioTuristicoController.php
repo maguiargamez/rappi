@@ -43,6 +43,7 @@ class SitioTuristicoController extends Controller
         $sitios= SitioTuristico::getAll();
         foreach ($sitios as $sitio){
             $sitio->region= $sitio->region->nombre;
+            $sitio->municipio= $sitio->municipio->nombre;
         }
         return SitioTuristicoCollection::make($sitios);
     }
@@ -77,6 +78,7 @@ class SitioTuristicoController extends Controller
     {
         $sitio= SitioTuristico::getSingle($id);
         $sitio->region= $sitio->region->nombre;
+        $sitio->municipio= $sitio->municipio->nombre;
         return SitioTuristicoResource::make($sitio);
     }
 }

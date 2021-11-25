@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Municipio;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Region;
@@ -26,6 +27,7 @@ class SitioTuristicoFactory extends Factory
         return [
             'slug' => $this->faker->slug,
             'region_id' => Region::factory(),
+            'municipio_id' => Municipio::factory(),
             'nombre' => $this->faker->word,
             'descripcion' => $this->faker->text,
             'como_llegar' => $this->faker->text,

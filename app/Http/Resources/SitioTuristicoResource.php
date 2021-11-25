@@ -20,6 +20,7 @@ class SitioTuristicoResource extends JsonResource
             'attributes' => [
                 'slug' => $this->resource->slug,
                 'region' => $this->resource->region,
+                'municipio' => $this->resource->municipio,
                 'nombre' => $this->resource->nombre,
                 'descripcion' => $this->resource->descripcion,
                 'como_llegar' => $this->resource->como_llegar,
