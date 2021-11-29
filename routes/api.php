@@ -9,3 +9,5 @@ Route::get('sitios-turisticos', [SitioTuristicoController::class, 'index'])->nam
 Route::get('sitios-turisticos/{sitio}', [SitioTuristicoController::class, 'show'])->name('api.v1.sitios-turisticos.show');
 
 Route::post('sitios-turisticos-visitas', [SitioTuristicoVisitaController::class, 'create'])->name('api.v1.sitios-turisticos-visitas.create');
+
+Route::post('sitios-turisticos-visitass', [SitioTuristicoVisitaController::class, 'create'])->name('api.v1.sitios-turisticos-visitas.create');
