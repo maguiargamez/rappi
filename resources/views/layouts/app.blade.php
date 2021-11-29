@@ -21,6 +21,7 @@
             padding-top: 4.5rem;
         }
     </style>
+    @livewireStyles
 </head>
 <body class="bg-light">
 
@@ -61,10 +62,6 @@
 
     </nav>
 
-
-
-
-
     <main class="container">
         <nav  style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -78,6 +75,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js') }}" defer></script>
+    @livewireScripts
 
 </body>
 
