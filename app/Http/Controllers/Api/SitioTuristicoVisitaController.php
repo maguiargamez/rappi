@@ -76,8 +76,13 @@ class SitioTuristicoVisitaController extends Controller
      */
 
 
-    public function create(Request $request)
+    public function store(Request $request): SitioTuristicoVisitaResource
     {
+        $request->validate([
+            'data.attributes.ip' => ['required', 'ip'],
+            'data.attributes.fecha' => ['required', 'date_format:"Y-m-d H:i:s']
+        ]);
+
         $visita = SitioTuristicoVisita::create([
             'sitio_turistico_id' => $request->input('data.attributes.sitio_turistico_id'),
             'ip' => $request->input('data.attributes.ip'),

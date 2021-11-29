@@ -18,6 +18,7 @@ class ListSitiosTuristicosTest extends TestCase
         $sitio= SitioTuristico::factory()->create();
 
         $sitio->region= $sitio->region->nombre;
+        $sitio->municipio= $sitio->municipio->nombre;
         ($sitio->sitio_turistico_visitas_count!=null) ?: $sitio->sitio_turistico_visitas_count=0;
 
         $response= $this->getJson( route('api.v1.sitios-turisticos.show', $sitio->id) );
@@ -30,6 +31,7 @@ class ListSitiosTuristicosTest extends TestCase
                     'attributes' => [
                         'slug' => $sitio->slug,
                         'region' => $sitio->region,
+                        'municipio' => $sitio->municipio,
                         'nombre' => $sitio->nombre,
                         'descripcion' => $sitio->descripcion,
                         'como_llegar' => $sitio->como_llegar,
@@ -55,6 +57,7 @@ class ListSitiosTuristicosTest extends TestCase
         foreach ($sitios as $sitio)
         {
             $sitio->region= $sitio->region->nombre;
+            $sitio->municipio= $sitio->municipio->nombre;
             ($sitio->sitio_turistico_visitas_count!=null) ?: $sitio->sitio_turistico_visitas_count=0;
         }
 
@@ -68,6 +71,7 @@ class ListSitiosTuristicosTest extends TestCase
                     'attributes' => [
                         'slug' => $sitios[0]->slug,
                         'region' => $sitios[0]->region,
+                        'municipio' => $sitios[0]->municipio,
                         'nombre' => $sitios[0]->nombre,
                         'descripcion' => $sitios[0]->descripcion,
                         'como_llegar' => $sitios[0]->como_llegar,
@@ -86,6 +90,7 @@ class ListSitiosTuristicosTest extends TestCase
                     'attributes' => [
                         'slug' => $sitios[1]->slug,
                         'region' => $sitios[1]->region,
+                        'municipio' => $sitios[1]->municipio,
                         'nombre' => $sitios[1]->nombre,
                         'descripcion' => $sitios[1]->descripcion,
                         'como_llegar' => $sitios[1]->como_llegar,
@@ -104,6 +109,7 @@ class ListSitiosTuristicosTest extends TestCase
                     'attributes' => [
                         'slug' => $sitios[2]->slug,
                         'region' => $sitios[2]->region,
+                        'municipio' => $sitios[2]->municipio,
                         'nombre' => $sitios[2]->nombre,
                         'descripcion' => $sitios[2]->descripcion,
                         'como_llegar' => $sitios[2]->como_llegar,

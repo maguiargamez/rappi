@@ -20,6 +20,7 @@ class CreateTSitiosTuristicosTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->foreignId('region_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate()->on('c_regiones');
+            $table->foreignId('municipio_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate()->on('c_municipios');
             $table->string('nombre')->length(255);
             $table->text('descripcion');
             $table->text('como_llegar');
