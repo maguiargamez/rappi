@@ -59,4 +59,20 @@ class SitioTuristico extends Model
         return SitioTuristico::withCount('sitioTuristicoVisitas')->get();
 
     }
+
+    public function getAllTable($keyWord){
+        return SitioTuristico::withCount('sitioTuristicoVisitas')
+            ->orWhere('nombre', 'LIKE', $keyWord)
+            ->orWhere('descripcion', 'LIKE', $keyWord)
+            ->orWhere('como_llegar', 'LIKE', $keyWord)
+            ->orWhere('lugares_relacionados', 'LIKE', $keyWord)
+            ->orWhereHas('region', function($query) use($keyWord){
+                $query->where('nombre', 'LIKE', $keyWord);
+            })
+            ->orWhereHas('municipio', function($query) use($keyWord){
+                $query->where('nombre', 'LIKE', $keyWord);
+            })
+            ->paginate(10);
+
+    }
 }
