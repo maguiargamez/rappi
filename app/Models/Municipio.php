@@ -26,6 +26,11 @@ class Municipio extends Model
         'id' => 'integer',
     ];
 
+    public static function comboActivos($array=[]){
+        $query= Municipio::select('id', 'nombre');
+        $query= $query->orderBy('nombre','ASC')->pluck('nombre','id')->prepend('--Municipio--', 0)->all();
+        return $query;
+    }
 
     public function sitioTuristicos()
     {

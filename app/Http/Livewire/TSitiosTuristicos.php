@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Municipio;
+use App\Models\Region;
 use App\Models\SitioTuristico;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -14,6 +16,8 @@ class TSitiosTuristicos extends Component
 	protected $paginationTheme = 'bootstrap';
     public $selected_id, $keyWord, $slug, $region_id, $municipio_id, $nombre, $descripcion, $como_llegar, $lugares_relacionados, $coordenadas, $activo;
     public $updateMode = false;
+    public $regiones= [];
+    public $municipios= [];
 
     public function render()
     {
@@ -92,6 +96,8 @@ class TSitiosTuristicos extends Component
 		$this->lugares_relacionados = $record-> lugares_relacionados;
 		$this->coordenadas = $record-> coordenadas;
 		$this->activo = $record-> activo;
+        $this->regiones = Region::comboActivos();
+        $this->municipios = Municipio::comboActivos();
 
         $this->updateMode = true;
     }
@@ -99,34 +105,31 @@ class TSitiosTuristicos extends Component
     public function update()
     {
         $this->validate([
-		'slug' => 'required',
+
 		'region_id' => 'required',
 		'municipio_id' => 'required',
 		'nombre' => 'required',
 		'descripcion' => 'required',
 		'como_llegar' => 'required',
 		'lugares_relacionados' => 'required',
-		'coordenadas' => 'required',
-		'activo' => 'required',
+
         ]);
 
         if ($this->selected_id) {
 			$record = TSitiosTuristico::find($this->selected_id);
             $record->update([
-			'slug' => $this-> slug,
 			'region_id' => $this-> region_id,
 			'municipio_id' => $this-> municipio_id,
 			'nombre' => $this-> nombre,
 			'descripcion' => $this-> descripcion,
 			'como_llegar' => $this-> como_llegar,
-			'lugares_relacionados' => $this-> lugares_relacionados,
-			'coordenadas' => $this-> coordenadas,
-			'activo' => $this-> activo
+			'lugares_relacionados' => $this-> lugares_relacionados
             ]);
 
             $this->resetInput();
             $this->updateMode = false;
-			session()->flash('message', 'TSitiosTuristico Successfully updated.');
+            $this->dispatchBrowserEvent('closeModal');
+            session()->flash('message', 'El sitio turístico fue actualizado correctamente.');
         }
     }
 
