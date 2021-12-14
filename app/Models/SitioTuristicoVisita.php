@@ -31,6 +31,18 @@ class SitioTuristicoVisita extends Model
 
     public function sitioturistico()
     {
-        return $this->belongsTo(\App\Models\Sitioturistico::class);
+        return $this->belongsTo(\App\Models\Sitioturistico::class, 'sitio_turistico_id', 'id');
+        //return $this->hasOne('App\Models\CMunicipio', 'id', 'municipio_id');
+    }
+
+    public function getAllTable($keyWord){
+        return SitioTuristicoVisita::orWhere('ip', 'LIKE', $keyWord)
+            ->orWhere('fecha', 'LIKE', $keyWord)
+            ->orWhereHas('sitioturistico', function($query) use($keyWord){
+                $query->where('nombre', 'LIKE', $keyWord);
+            })
+            ->orderBy('fecha', 'DESC')
+            ->paginate(10);
+
     }
 }

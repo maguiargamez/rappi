@@ -12,22 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', function () {
+        return redirect()->route('home');
+    });
 
     Route::get('home', \App\Http\Livewire\Dashboard\SitiosTuristicosList::class)->name('home');
-
     //Route::get('home', \App\Http\Livewire\Dashboard\SitiosTuristicosList::class)->name('home');
-
-
 });
-//Test2
-
-
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -35,7 +27,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 //Route Hooks - Do not delete//
 	Route::view('t-sitios-turisticos', 'livewire.t_sitios_turisticos.index')->middleware('auth');
+
+Route::view('t-sitios-turisticos-visitas', 'livewire.t_sitios_turisticos_visitas.index')->middleware('auth');

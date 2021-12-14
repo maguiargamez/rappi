@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SitioTuristico;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $sitios= SitioTuristico::getTop(4);
+        //dd($sitios);
+        return view('home', compact($sitios));
     }
 }

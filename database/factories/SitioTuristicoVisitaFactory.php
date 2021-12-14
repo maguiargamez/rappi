@@ -23,8 +23,9 @@ class SitioTuristicoVisitaFactory extends Factory
      */
     public function definition()
     {
+        $sitio_turistico_id= \App\Models\Sitioturistico::where('activo', 1)->inRandomOrder()->value('id');
         return [
-            //'sitio_turistico_id' => Sitioturistico::factory(),
+            'sitio_turistico_id' => $sitio_turistico_id,
             'ip' => $this->faker->ipv4,
             'fecha' => $this->faker->dateTime(),
         ];

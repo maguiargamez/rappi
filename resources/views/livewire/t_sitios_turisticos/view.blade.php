@@ -6,8 +6,8 @@
 				<div class="card-header">
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
-							<h4><i class="fab fa-laravel text-info"></i>
-							Listado de Sitios Turísticos </h4>
+							<h4><i class="fa fa-globe text-info"></i>
+							Sitios Turísticos </h4>
 						</div>
 						<div wire:poll.60s>
 {{--							<code><h5>{{ now()->format('H:i:s') }} UTC</h5></code>--}}
@@ -59,7 +59,7 @@
 									</button>
 									<div class="dropdown-menu dropdown-menu-right">
 									<a data-toggle="modal" data-target="#updateModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Editar </a>
-									<a class="dropdown-item" onclick="confirm('Confirm Delete T Sitios Turistico id {{$row->id}}? \nDeleted T Sitios Turisticos cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Eliminar </a>
+									<a class="dropdown-item" onclick="confirm('Esta seguro de eliminar este registro? \nNo podrá ser recuperado!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Eliminar </a>
 									</div>
 								</div>
 								</td>

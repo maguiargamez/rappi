@@ -60,6 +60,11 @@ class SitioTuristico extends Model
 
     }
 
+    public function getTop($top=0){
+        return SitioTuristico::withCount('sitioTuristicoVisitas')->orderBy('sitio_turistico_visitas_count', 'DESC')->take($top)->get();
+
+    }
+
     public function getAllTable($keyWord){
         return SitioTuristico::withCount('sitioTuristicoVisitas')
             ->orWhere('nombre', 'LIKE', $keyWord)
@@ -73,6 +78,23 @@ class SitioTuristico extends Model
                 $query->where('nombre', 'LIKE', $keyWord);
             })
             ->paginate(10);
+
+    }
+
+    public function getAllTableVisits($keyWord){
+        return SitioTuristico::withCount('sitioTuristicoVisitas')
+            ->orWhere('nombre', 'LIKE', $keyWord)
+            ->orWhere('descripcion', 'LIKE', $keyWord)
+            ->orWhere('como_llegar', 'LIKE', $keyWord)
+            ->orWhere('lugares_relacionados', 'LIKE', $keyWord)
+            ->orWhereHas('region', function($query) use($keyWord){
+                $query->where('nombre', 'LIKE', $keyWord);
+            })
+            ->orWhereHas('municipio', function($query) use($keyWord){
+                $query->where('nombre', 'LIKE', $keyWord);
+            })
+            ->orderBy('sitio_turistico_visitas_count', 'DESC')
+            ->get();
 
     }
 }

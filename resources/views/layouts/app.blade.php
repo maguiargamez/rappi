@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>@hasSection('title') @yield('title') | @endif {{ config('app.name', 'Laravel') }}</title>
+	<title>@hasSection('title') @yield('title') | @endif {{ config('app.name', 'Administrador RA') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -36,8 +36,14 @@
 					@auth()
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
+                        <li class="nav-item">
+                            <a href="{{ url('/home') }}" class="nav-link"><i class="fa fa-home text-info"></i> Inicio</a>
+                        </li>
 						<li class="nav-item">
-                            <a href="{{ url('/t-sitios-turisticos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> T_sitios_turisticos</a>
+                            <a href="{{ url('/t-sitios-turisticos') }}" class="nav-link"><i class="fa fa-globe text-info"></i> Sitios turísticos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/t-sitios-turisticos-visitas') }}" class="nav-link"><i class="fa fa-eye text-info"></i> Visitas</a>
                         </li>
                     </ul>
 					@endauth()
@@ -46,7 +52,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
+{{--                            @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
@@ -56,7 +62,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif--}}
                         @else
                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -67,7 +73,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar sesión') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
