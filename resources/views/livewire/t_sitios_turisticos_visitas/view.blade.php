@@ -31,7 +31,6 @@
                             <tr>
                                 <td>#</td>
                                 <th>Fecha</th>
-                                <th>IP</th>
                                 <th>Sitio turístico</th>
                             </tr>
                             </thead>
@@ -40,7 +39,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $row->fecha }}</td>
-                                    <td>{{ $row->ip }}</td>
                                     <td>{{ $row->sitioturistico }}</td>
                             @endforeach
                             </tbody>

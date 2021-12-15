@@ -8,5 +8,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('sitios-turisticos', [SitioTuristicoController::class, 'index'])->name('api.v1.sitios-turisticos.index');
 Route::get('sitios-turisticos/{sitio}', [SitioTuristicoController::class, 'show'])->name('api.v1.sitios-turisticos.show');
 
-Route::post('sitios-turisticos-visitas', [SitioTuristicoVisitaController::class, 'create'])->name('api.v1.sitios-turisticos-visitas.create');
+//Route::post('sitios-turisticos-visitas', [SitioTuristicoVisitaController::class, 'store'])->name('api.v1.sitios-turisticos-visitas.create');
 //Test2

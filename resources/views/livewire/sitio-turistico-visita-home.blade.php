@@ -42,7 +42,7 @@
                                     <td>{{ $row->nombre }}</td>
                                     <td>{{ $row->region }}</td>
                                     <td>{{ $row->municipio }}</td>
-                                    <td align="center">{{ $row->sitio_turistico_visitas_count }}</td>
+                                    <td align="center">{{ number_format($row->sitio_turistico_visitas_count) }}</td>
 {{--                                    <td width="90">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

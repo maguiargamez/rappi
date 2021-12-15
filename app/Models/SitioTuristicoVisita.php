@@ -31,7 +31,7 @@ class SitioTuristicoVisita extends Model
 
     public function sitioturistico()
     {
-        return $this->belongsTo(\App\Models\Sitioturistico::class, 'sitio_turistico_id', 'id');
+        return $this->belongsTo('App\Models\Sitioturistico', 'sitio_turistico_id', 'id');
         //return $this->hasOne('App\Models\CMunicipio', 'id', 'municipio_id');
     }
 

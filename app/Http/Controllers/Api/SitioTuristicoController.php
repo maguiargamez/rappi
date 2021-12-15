@@ -7,6 +7,8 @@ use App\Http\Resources\SitioTuristicoCollection;
 use App\Http\Resources\SitioTuristicoResource;
 use App\Models\SitioTuristico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\SitioTuristicoVisita;
 
 /**
  * @OA\Info(title="API Usuarios", version="1.0")
@@ -79,6 +81,18 @@ class SitioTuristicoController extends Controller
         $sitio= SitioTuristico::getSingle($id);
         $sitio->region= $sitio->region->nombre;
         $sitio->municipio= $sitio->municipio->nombre;
+
+        try{
+            DB::beginTransaction();
+            $visita = SitioTuristicoVisita::create([
+                'sitio_turistico_id' => $id,
+                'fecha' => date('Y-M-d H:m:s'),
+            ]);
+            DB::commit();
+        }catch (\Exception $e) {
+            DB::rollback();
+        }
+
         return SitioTuristicoResource::make($sitio);
     }
 }
