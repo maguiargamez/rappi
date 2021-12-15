@@ -30,6 +30,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 //Route Hooks - Do not delete//
+	Route::view('users', 'livewire.users.index')->middleware('auth');
+	Route::view('c_regiones', 'livewire.c_regiones.index')->middleware('auth');
+	Route::view('c_municipios', 'livewire.c_municipios.index')->middleware('auth');
 	Route::view('t-sitios-turisticos', 'livewire.t_sitios_turisticos.index')->middleware('auth');
 
 Route::view('t-sitios-turisticos-visitas', 'livewire.t_sitios_turisticos_visitas.index')->middleware('auth');

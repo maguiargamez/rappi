@@ -36,6 +36,7 @@
 					@auth()
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
+
                         <li class="nav-item">
                             <a href="{{ url('/home') }}" class="nav-link"><i class="fa fa-home text-info"></i> Inicio</a>
                         </li>
@@ -45,6 +46,26 @@
                         <li class="nav-item">
                             <a href="{{ url('/t-sitios-turisticos-visitas') }}" class="nav-link"><i class="fa fa-eye text-info"></i> Visitas</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ url('/users') }}" class="nav-link"><i class="fa fa-users text-info"></i> Cuentas de usuario</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <i class="fa fa-file text-info"></i> Catálogos
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a href="{{ url('/c_regiones') }}" class="nav-link">Regiones</a>
+                                <a href="{{ url('/c_municipios') }}" class="nav-link">Municipios</a>
+                            </div>
+                        </li>
+
+
+
+
                     </ul>
 					@endauth()
 
