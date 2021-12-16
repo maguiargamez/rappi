@@ -15,27 +15,27 @@
                 <input wire:model="slug" type="text" class="form-control" id="slug" placeholder="Slug">@error('slug') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="region_id"></label>
+                <label for="region_id"><b>Región:</b></label>
                 <input wire:model="region_id" type="text" class="form-control" id="region_id" placeholder="Region Id">@error('region_id') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="municipio_id"></label>
+                <label for="municipio_id"><b>Municipio:</b></label>
                 <input wire:model="municipio_id" type="text" class="form-control" id="municipio_id" placeholder="Municipio Id">@error('municipio_id') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="nombre"></label>
+                <label for="nombre"><b>Sitio turístico:</b></label>
                 <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">@error('nombre') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="descripcion"></label>
+                <label for="descripcion"><b>Descripción:</b></label>
                 <input wire:model="descripcion" type="text" class="form-control" id="descripcion" placeholder="Descripcion">@error('descripcion') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="como_llegar"></label>
+                <label for="como_llegar"><b>Como llegar:</b></label>
                 <input wire:model="como_llegar" type="text" class="form-control" id="como_llegar" placeholder="Como Llegar">@error('como_llegar') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="lugares_relacionados"></label>
+                <label for="lugares_relacionados"><b>Lugares relacionados:</b></label>
                 <input wire:model="lugares_relacionados" type="text" class="form-control" id="lugares_relacionados" placeholder="Lugares Relacionados">@error('lugares_relacionados') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">

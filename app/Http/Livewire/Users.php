@@ -43,7 +43,7 @@ class Users extends Component
     {
         $this->validate([
 		'name' => 'required',
-		'email' => 'required',
+		'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
 
@@ -73,7 +73,7 @@ class Users extends Component
     {
         $this->validate([
 		'name' => 'required',
-		'email' => 'required',
+		'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
 

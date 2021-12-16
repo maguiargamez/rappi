@@ -17,7 +17,7 @@
                 <form wire:submit.prevent="update()">
 					<input type="hidden" wire:model="selected_id">
             <div class="form-group">
-                <label for="nombre"></label>
+                <label for="nombre"><b>Nombre:</b></label>
                 <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">@error('nombre') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
 

@@ -9,19 +9,19 @@
                 </button>
             </div>
            <div class="modal-body">
-               <form wire:submit.prevent="update()">
+               <form>
             <div class="form-group">
-                <label for="name"></label>
-                <input wire:model="name" type="text" class="form-control" id="name" placeholder="Name">@error('name') <span class="error text-danger">{{ $message }}</span> @enderror
+                <label for="name"><b>Nombre:</b></label>
+                <input wire:model="name" type="text" class="form-control" id="name" placeholder="Nombre">@error('name') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="email"></label>
-                <input wire:model="email" type="text" class="form-control" id="email" placeholder="Email">@error('email') <span class="error text-danger">{{ $message }}</span> @enderror
+                <label for="email"><b>Correo electrónico:</b></label>
+                <input wire:model="email" type="text" class="form-control" id="email" placeholder="Correo electrónico">@error('email') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="form-group">
-                <label for="password"></label>
-                <input wire:model="password" type="password" class="form-control" id="password" placeholder="Password">@error('password') <span class="error text-danger">{{ $message }}</span> @enderror
+                <label for="password"><b>Contraseña:</b></label>
+                <input wire:model="password" type="password" class="form-control" id="password" placeholder="Contraseña">@error('password') <span class="error text-danger">{{ $message }}</span> @enderror
             </div>
 
 
@@ -29,8 +29,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Cerrar</button>
-                {{--                <button type="button" wire:click.prevent="update()" class="btn btn-primary" data-dismiss="modal">Save</button>--}}
-                <button type="submit"  class="btn btn-primary">Actualizar</button>
+                <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Guardar</button>
             </div>
         </div>
     </div>
